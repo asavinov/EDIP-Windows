@@ -1,0 +1,568 @@
+/*
+                        ÕÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¸
+                ÕÍÍÍÍÍÍÍ¾²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²³
+            ÕÍÍÍ¾²²²²²²²²²²²²²²²ÍØÍØÍØÍ²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²³
+          ÕÍ¾²²²²²²²²²²²²²²²²²ÍØÍØÍØÍØÍØÍ²²²²²²²²²²²²²²²²²²²²²²²²²²²²³
+        ÕÍ¾²²²²²²²²²²²²²²²²²²²ÍØÍØÍØÍØÍØÍ°²²²²²²²²²²²²ÍØÍØÍØÍ²²²²²²²²³
+      ÕÍ¾²²²²²²²²²²²²²²²²²²²²²ÍØÍØÍØÍØÍØÍ°²²²²²²²²²²²²ÍØÍØÍØÍ°²²²²²²²³
+    ÕÍ¾²²²²²²²²²²²²²²²²²²²²²²²²°ÍØÍØÍØÍ°°°ÍØÍØÍØÍ²²²ÍØÍØÍØÍ°°°²²²²²²²³
+    ³²²²²²²²²²²²²²²²²²²²²²²²²²²²²°°°°°°°²²ÍØÍØÍØÍ°²²ÍØÍØÍØÍ°²²²²²²²²²³
+  ÕÍ¾²²²²²²²²²²²²²²²²²²²²²²²²²ÍØÍØÍØÍ²²²ÍØÍØÍØÍ°°°ÍØÍØÍØÍ°°°²²²²²²²²²³
+  ³²²²²²²²²²²²²²²²²²²²²²²²²²²²ÍØÍØÍØÍ°²²ÍØÍØÍØÍ°²²ÍØÍØÍØÍ°²²²²²²²²²²²³
+  ³²²²²²²²²²²²²²²²²²²²²²²²²²ÍØÍØÍØÍ°°°ÍØÍØÍØÍ°°°ÍØÍØÍØÍ°°°²²²²²²²²²²²³
+  ³²²²²²²²²²²²²²²²²²²²²²²²²²ÍØÍØÍØÍ°²²ÍØÍØÍØÍ°²²ÍØÍØÍØÍ°²²²²²²²²²²²²²³
+  ³²²²²²²²²²²²²²²²²²²²²²²²²²²°°°°°°°²²²°°°°°°°²²²°°°°°°°²²²²²²²²²²²²²³
+  ³²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²³
+  ³²²²²²²ÍØÍØÍØÍØÍØÍ²²²ÍØÍØÍØÍØÍ²²²²²²²ÍØÍØÍ²²²ÍØÍØÍØÍØÍØÍ²²²²²²²²²²²³
+  ³²²²²²²ÍØÍØÍ°°°°°°°²²ÍØÍØÍ°ÍØÍØÍ²²²²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍ²²²²²²²²²³
+  ³²²²²²²ÍØÍØÍ°²²²²²²²²ÍØÍØÍ°²°ÍØÍØÍ²²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍ°²²²²²²²²³
+  ³²²²²²²ÍØÍØÍØÍØÍ²²²²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍ°²²²²²²ÕÍ¾
+  ³²²²²²²ÍØÍØÍ°°°°°²²²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍ°²²²²²²³
+  ³²²²²²²ÍØÍØÍ°²²²²²²²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍ°²²ÍØÍØÍØÍØÍØÍ°°°²²²²ÕÍ¾
+  ³²²²²²²ÍØÍØÍ°²²²²²²²²ÍØÍØÍ°ÍØÍØÍ°°°²²ÍØÍØÍ°²²ÍØÍØÍ°°°°°°°²²²²ÕÍ¾
+  ³²²²²²²ÍØÍØÍØÍØÍØÍ²²²ÍØÍØÍØÍØÍ°°°²²²²ÍØÍØÍ°²²ÍØÍØÍ°²²²²²²²²ÕÍ¾
+  ³²²²²²²²°°°°°°°°°°°²²²°°°°°°°°°²²²²²²²°°°°°²²²°°°°°²²²²²²ÕÍ¾
+  ³²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²ÕÍÍÍ¾
+  ³²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²²ÕÍÍÍÍÍÍÍ¾
+  ÔÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¾
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ·
+  ³                 Fuzzy Knowledge Manager EDIP                 ºÛÛ
+  ³                          Version 1.3                         ºÛÛ
+  ³                           1992-1994                          ºÛÛ
+  ³                                                              ºÛÛ
+  ³                   Alexandr A. Savinov, PhD                   ºÛÛ
+  ³      Laboratory of AI Systems, Institute of Mathematics      ºÛÛ
+  ³       str. Academiei 5, 277028 Kishinev, Moldavia (CIS)      ºÛÛ
+  ³                    Phone: (373+2) 73-81-30                   ºÛÛ
+  ³                E-mail: 23LSII@math.moldova.su                ºÛÛ
+  ³                                                              ºÛÛ
+  ÔÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ Kishinev, Moldavia ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼ÛÛ
+    ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
+
+
+CONTENTS
+
+1. Introduction
+2. Attribute Model
+3. Fuzzy Propositions
+4. Fuzzy Disjuncts
+5. Fuzzy Implications
+6. Fuzzy Conjuncts
+7. Logical Inference
+8. Window Classes
+   8.1. Structure Window
+   8.2. Knowledge Window
+   8.3. Consultation Window
+9. Menu Commands
+   9.1. File
+        9.1.1. File|New Knowledge Base
+        9.1.2. File|Open Knowledge Base
+        9.1.3. File|Save Knowledge Base
+        9.1.4. File|Save Knowledge Base As
+        9.1.5. File|Close Window
+        9.1.6. File|Close All Windows
+        9.1.7. File|Exit
+   9.2. View
+        9.2.1. Splitting Window
+        9.2.2. Sorting Items
+        9.2.3. Data/Conclusion View
+   9.3. Item
+   9.4. Compile
+   9.5. Inference
+   9.6. Window
+   9.7. Help
+10. Proposals
+   10.1. Fuzzy Knowledge Manager EDIP
+11. Selected References
+
+
+1. INTRODUCTION
+~~~~~~~~~~~~~~~
+Fuzzy knowledge manager EDIP is based on new original results in the
+field of fuzzy logics obtained in the Laboratory of Artificial
+Intelligence Systems of the Institute of Mathematics (Kishinev) and
+published in about 20 papers. These results were implemented in two
+versions of the expert system shell EDIP for DOS and now in the fuzzy
+knowledge manager EDIP for Windows.
+
+The system EDIP belongs to the class of knowledge based systems. It is
+intended for creating knowledge bases and using them in concrete
+problem domains. It is also especially suitable for education due to
+its original graphical user interface. Fuzzy knowledge manager EDIP is
+based on fuzzy propositional logic recently developed in the
+Laboratory of AI Systems. The main notion is fuzzy attribute model
+used for knowledge representation and logical inference. The latter is
+based also on new fuzzy resolution principle. The version 1.3 includes
+knowledge base editor and consultant within one program module.
+Subsequent versions will include several modules such as knowledge
+base editor, consultant, knowledge elicitor (based on repertory grids
+method), dialogue base editor, data generalizer, and will also have
+such new capabilities as non-monotonic inference engine, flexible
+logical operations, interface with data bases.
+
+Now fuzzy knowledge manager EDIP is distributed by the Institute of
+Mathematics so if you are somewhat interested in this product or for
+any additional information please contact Dr. Alexandr Savinov. Our
+laboratory is now looking for collaboration in distributing fuzzy
+knowledge manager EDIP in commercial and educational spheres and also
+in developing new products. Some proposals are in section 10.
+
+The author would be very grateful for all remarks and suggestions on
+the subject of the fuzzy knowledge manager EDIP.
+
+Remember: Components are changed by the keys GrayPlus, GrayMinus, Ins,
+          and Del. Demo version is not able to save files.
+
+2. ATTRIBUTE MODEL
+~~~~~~~~~~~~~~~~~~
+It is supposed that the problem domain is described with the help of a
+finite number of attributes, each of them taking a finite number of
+values. The Cartesian product of all sets of the values is called the
+universe or the states space. Attributes and the values form a
+syntactical structure of the problem domain. Note that there is no
+fuzziness at the syntactical level of the description. So if there is
+the attribute COLOR with the values Black and White, then in such
+model information about the red or gray color cannot be principally
+expressed. The representation with the help of attribute model means
+that each state of the problem domain has its description in the form
+of the concrete collection of the values of attributes. Semantics of
+the problem domain is fuzzy constraints on the possible combinations
+of the values of attributes. We will suppose that it is represented by
+the possibility distribution on the states space. In other words, in
+order to represent the semantics it is necessary to assign each object
+(state) a number form [0,1] called the degree of possibility. If the
+degree of possibility is equal to 1, then it means total uncertainty,
+whereas 0 means that the state is disabled and consequently the
+corresponding combination of the values of attributes is meaningless.
+
+3. FUZZY PROPOSITIONS
+~~~~~~~~~~~~~~~~~~~~~
+Elementary fuzzy proposition is fuzzy constraints on the possible
+values of one attribute. Here is an example of the elementary fuzzy
+proposition: COLOR= {Black:1, Gray:0.5, White:0}. Thus elementary
+fuzzy proposition assigns each value a number from [0,1] which is
+thought of as degree of possibility. More complex propositions are
+built from elementary ones with the help of logical connectives AND
+and OR. In the fuzzy knowledge manager EDIP the following complex
+propositions are used: disjuncts, implications, conjuncts.
+
+4. FUZZY DISJUNCTS
+~~~~~~~~~~~~~~~~~~
+Fuzzy disjunct consists of a number of elementary fuzzy propositions
+connected by OR connective. The semantics of disjunct has a
+prohibitive character, i.e., one disjunct disables (in fuzzy sense)
+some states of the problem domain or some combinations of the values
+of attributes. In the knowledge manager EDIP fuzzy disjuncts are used
+to express general knowledge about the problem domain and they are
+displayed in the knowledge window.
+
+5. FUZZY IMPLICATIONS
+~~~~~~~~~~~~~~~~~~~~~
+Fuzzy implication consists of the left and right parts connected by
+the implication sign. Elementary propositions in the left part are
+connected by AND connective, while elementary propositions in the
+right part are connected by OR connective. Each implication is
+semantically equivalent to some fuzzy disjunct, which can be obtained
+by inverting the left part of the implication. However implications
+are more convenient for expressing casual dependencies.
+
+In the knowledge manager EDIP propositions from the left part of
+implication (premises) are indicated by the symbol '<' (left arrow
+directed from the name of the attribute), while propositions from the
+right part (conclusions) are indicated by the symbol '>' (right arrow
+directed to the name of the attribute).
+
+6. FUZZY CONJUNCTS
+~~~~~~~~~~~~~~~~~~
+Fuzzy conjunct consists of a number of elementary fuzzy propositions
+connected by AND connective. Fuzzy conjuncts are used to store data
+and conclusions during the consultation and are displayed in the
+consultation window.
+
+7. LOGICAL INFERENCE
+~~~~~~~~~~~~~~~~~~~~
+Logical inference in the fuzzy knowledge manager EDIP consists in
+finding maximal fuzzy constraints on the values of separate attributes
+provided data about the current situation and general knowledge.
+Information about the concrete situation is entered into the
+consultation window in data view and is kept as one fuzzy conjunct.
+Obtained as a result of logical inference information is displayed in
+conclusion view of the consultation window and is also kept as one
+fuzzy conjunct.
+
+8. WINDOW CLASSES
+~~~~~~~~~~~~~~~~~
+Fuzzy knowledge manager EDIP allows opening three classes of windows:
+       - structure window
+       - knowledge window
+       - consultation window
+Each of them allows executing its own set of actions under the
+corresponding part of the knowledge base.
+
+8.1. Structure Window
+~~~~~~~~~~~~~~~~~~~~~
+The structure window is used to edit the syntactical structure of the
+problem domain. In this window one may add, delete, and edit
+descriptions of attributes and values which make up the attribute
+model. Both attributes and the values may be sorted in the order of
+different properties of their descriptions, e.g., by importance or by
+name.
+
+8.2. Knowledge Window
+~~~~~~~~~~~~~~~~~~~~~
+The knowledge window is used to edit the semantical part of the
+knowledge base. At each moment it displays the only rule (fuzzy
+disjunct or conjunct) from the knowledge base. The rules may be added,
+deleted, or edited. The rules are edited by adding or deleting
+propositions about attributes and this results in the corresponding
+change of the structure of logical dependency. In addition one may
+edit the propositions by changing the components within each of
+propositions which make up the rule. Component is increased by the key
+GrayPlus and decreased by the key GrayMinus.
+
+The propositions may be either in premise form or in the conclusion
+form. Premises are indicated by the symbol '<' (left arrow directed
+from the name of the attribute). Conclusions are indicated by the
+symbol '>' (right arrow directed to the name of the attribute).
+
+8.3. Consultation Window
+~~~~~~~~~~~~~~~~~~~~~~~~
+The consultation window is used for carrying out consultations and has
+two views: data view and conclusion view. In data view observable
+information is entered into the window while the goal of consultation
+is entered in conclusion view. In order to enter data about the
+concrete situation in the system it is necessary to insert the
+proposition about some attribute into the data window (just as in the
+knowledge window) after that to set properly components of this
+proposition by the keys GrayPlus and GrayMinus. The conclusion view is
+identical to the data view except that its components are set by
+inference engine. Nevertheless the user may add or delete propositions
+in the conclusion view in order to set the goal of consultation.
+
+The consultation in the fuzzy knowledge manager EDIP consists in
+entering the data with the following carrying out logical inference.
+The system does not put pressure on the user; the user is free in his
+or her actions. One may experiment, play with the logical model of the
+problem domain just as if it was the real one. So it is possible to
+enter information about the goal as input data (e.g., diagnosis) and
+then ask the system to derive all consequences. For example, it is
+possible to enter the car description (number of doors, base etc.)
+with the purpose of finding out its type, but it is also possible to
+specify the type of car with the purpose of finding out its
+characteristic properties. In this sense all attributes in the
+knowledge manager EDIP are equal.
+
+9. MENU COMMANDS
+~~~~~~~~~~~~~~~~
+Each class of windows (structure, knowledge and consultation) has its
+own set of actions which may be fulfilled through the corresponding
+menu. However there is the following common part in all menus:
+       - File
+       - View
+       - Item
+       - Window
+       - Help
+In addition the knowledge window has menu item 
+       - Compile
+and the consultation window has menu item 
+       - Inference
+
+9.1. File Menu
+~~~~~~~~~~~~~~
+The File menu, along with the Help menu, is displayed when you first
+open knowledge manager EDIP. You use this menu to create. open, close,
+and save knowledge bases; close files; and exit knowledge manager.
+Here are the File menu  commands:
+       - New
+       - Open
+       - Exit
+Once you have created or opened a knowledge base, several more File
+commands are available:
+       - Save
+       - Save As
+       - Close
+       - Close All
+
+9.1.1. File|New Knowledge Base
+
+File|New knowledge base command creates new untitled knowledge base
+and opens structure window for it. In this window you can develop the
+syntactical structure for the problem domain and then (after the
+knowledge base is saved) to open the knowledge window where the
+semantical dependencies between attributes have to be entered.
+
+9.1.2. File|Open Knowledge Base
+
+File|Open knowledge base command opens an existing knowledge base.
+This command brings up the Open Knowledge Base dialog box where you
+select the file and class of the window to open (structure, knowledge
+or consultation window).
+
+9.1.3. File|Save Knowledge Base
+
+File|Save knowledge base command saves all parts of your knowledge
+base independently of the current window class. If you are saving a
+new knowledge base that has not been named yet, the knowledge manager
+EDIP displays the Save Knowledge Base As dialog box where you specify
+the file name and directory.
+
+9.1.4. File|Save Knowledge Base As
+
+Use the File|Save Knowledge Base As command if you want to rename the
+current knowledge base. The knowledge manager EDIP brings up the Save
+Knowledge Base As dialog box, where you specify the file's new name
+and directory.
+
+9.1.5. File|Close Window
+
+File|Close command closes an open window. If you have made changes and
+have not saved them, the knowledge manager EDIP asks you if you want
+to save changes.
+
+9.1.6. File|Close All Windows
+
+File|Close All command closes all open files. If you have made changes
+and have not saved them, the knowledge manager EDIP asks you if you
+want to save the changes.
+
+9.1.7. File|Exit
+
+File|Exit command exits you from the knowledge manager EDIP and closes
+all files. If you have made changes and have not saved them, the
+knowledge manager EDIP asks you if you want to save the changes.
+
+9.2. VIEW MENU
+~~~~~~~~~~~~~~
+View menu allows one to change an appearance of the current window.
+Use this command to determine how the window displays information.
+With the help of two commands Split Horizontal and Split Vertical the
+window can be splited as needed. Items within the window (attributes
+and values) may be sorted in the order of different properties:
+Unsorted, by Structure (only for knowledge and consultation windows),
+by Price, by Importance, by Values Number (only for attributes), by
+Characterness (only for values). For the consultation window there are
+also two additional commands: Data and Conclusion.
+
+9.2.1. Splitting Window
+
+Each of open windows may be splited horizontally, vertically, or may
+have not splitting at all. If the window is splited, then attributes
+are displayed in the upper (for horizontal splitting) or left (for
+vertical splitting) subwindow, while the values are displayed in the
+other subwindow. No splitting means that both attributes and the
+values are displayed in the only window. If the window is splited,
+then the divider may be moved by the mouse.
+
+9.2.2. Sorting Items
+
+Use the commands of sorting to group items in the window (attributes
+and values) according to different properties. Items may be Unsorted,
+sorted by Structure (only for the knowledge and consultation windows),
+by Name, by Price, by Importance, by Values Number (only for
+attributes), by Characterness (only for values). Option Unsorted means
+that the items are displayed in the order they were added.
+
+9.2.3. Data/Conclusion View
+
+There are two commands in view menu which are displayed only for
+consultation window: Data and Conclusion. These commands let you see
+either data entered by the user during the consultation or conclusions
+which are obtained from the data as a result of logical inference.
+
+9.3. ITEM MENU
+~~~~~~~~~~~~~~
+There are three main item commands: Add, Delete, Edit. In the
+structure window they are used to add, delete or edit items
+respectively. The item may be either attribute or value depending on
+the current item. If new item is added, then it is inserted just
+before the current item.
+
+In the knowledge and consultation windows the items are propositions,
+i.e., commands Add, Delete and Invert are used to add, delete or
+invert propositions in the current rule (for the knowledge window) or
+in the data/conclusion (for the consultation window).
+
+In the knowledge window there are two additional commands Add Rule and
+Delete Rule, which are used to insert new empty rule just before the
+current and to delete the current rule.
+
+The Call Hypertext command calls WinHelp program for the current item
+(attribute or value) using the value of the Hypertext field in the
+item description. The name of the hyperfile is taken from the module
+description. The Module Header command is used to edit the current
+knowledge base description. It calls Module Header dialog box.
+
+9.4. COMPILE MENU
+~~~~~~~~~~~~~~~~~
+Before the knowledge base may be used in consultation it has to be
+compiled with the help of the Compile command of the knowledge window.
+The goal of compilation is consists in transforming the knowledge base
+into a new form in which the logical inference is much more simpler.
+Having compiled the knowledge base you may carry out logical inference
+(in the consultation window) on the data and obtain conclusions.
+
+9.5. INFERENCE MENU
+~~~~~~~~~~~~~~~~~~~
+The Inference command is used to carry out logical inference. Before
+carrying out logical inference the goal have to be set by inserting
+some attribute (or several attributes) into the consultation window in
+conclusion view. The data are entered in data view and they are
+thought of as fuzzy constraints on the values of attributes. Logical
+inference on the data in knowledge manager EDIP consists in finding
+maximal fuzzy constraints on the values of goal attributes.
+
+9.6. WINDOW MENU
+~~~~~~~~~~~~~~~~
+The window menu contains commands for manipulating and opening
+windows. At the bottom of the Window menu is a list of open windows
+(window class and the knowledge base file name). If there is more than
+one, you can switch to another window and make it active by selecting
+it from the list. These are the Window menu commands: Tile, Cascade,
+Arrange Icons. Choose Window|Tile to tile your open windows. This
+option arranges the windows so they cover the entire desktop without
+overlapping one another. Choose Window|Cascade to stack all open
+windows. This option overlaps open windows so each is the same size as
+all others and only part of each underlying window is visible. Choose
+Window|Arrange Icons to arrange all icons in your main window.
+
+9.7. HELP MENU
+~~~~~~~~~~~~~~
+The Help menu provides access to online help, which comes up in a
+special Help window.
+
+10. PROPOSALS
+~~~~~~~~~~~~~
+Here are some proposals of the Laboratory of Artificial Intelligence
+Systems.
+
+10.1. Fuzzy Knowledge Manager EDIP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Purpose and Objectives
+
+The project EDIP is based on new original scientific results in the
+field of fuzzy logics obtained in the Laboratory of Artificial
+Intelligence Systems of the Institute of Mathematics (Kishinev) and
+published in about 20 papers including Japan, Germany, Russia and
+international journals. These results were implemented in two versions
+of the Expert System Shell EDIP for MS-DOS and in the Fuzzy Knowledge
+Manager EDIP for MS-Windows. The project is aimed at commercializing
+the Knowledge Manager EDIP for MS-Windows the first version of which
+is currently ready for use.
+
+Description of the Product
+
+The Knowledge Manager EDIP belongs to the class of knowledge based
+systems. It is intended for creating knowledge bases and using them in
+concrete problem domains. The Knowledge Manager EDIP is based on fuzzy
+propositional logic recently developed in the Laboratory of AI
+Systems. The main notion is fuzzy attribute model used for knowledge
+representation and logical inference. The latter is based also on new
+fuzzy resolution principle. The first version includes knowledge base
+editor and consultant within one program module. The second version
+will include several modules: knowledge base editor, consultant,
+knowledge elicitor, dialogue editor, data generalizer. It will also
+include new important features such as non-monotonic fuzzy inference
+engine, dialogue base, flexible logical operations (not only min/max),
+interface with data bases, knowledge base projects consisting of
+several modules.
+
+Advantages
+
+The following features of the Knowledge Manager EDIP  could make it
+the most powerful system within its class:
+   - original formalisms: attribute model, fuzzy propositional logic,
+     fuzzy resolution;
+   - effective fuzzy inference engine;
+   - non-monotonic reasoning capabilities;
+   - effective knowledge elicitor based on repertory grids method;
+   - original data generalizer;
+   - uniform user interface under MS-Windows.
+
+11. SELECTED REFERENCES
+~~~~~~~~~~~~~~~~~~~~~~~
+ [1.] Zakrevski A.D., Levchenko V.I., Pecherski Yu.N., Savinov A.A.,
+      Diagnostic expert system EDIP, Proc. conf. "Creation and
+      Application of Hybrid Expert Systems", Riga, Latvia, 158--161,
+      1990 (in Russian).
+
+ [2.] Levchenko V.I., Savinov A.A., Dialog control in problems of
+      diagnostics of objects described by finite predicates, Proc.
+      conf. "The Problems of Mathematisation of National Economy",
+      Kishinev, Moldavia, 76--79, 1990 (in Russian).
+
+ [3.] Arnaut V.S., Levchenko V.I., Savinov A.A., Interpretation by
+      images in multy-criterial expertise of objects Proc. 3nd conf.
+      "Pattern analysis in management, scientific researchs", and
+      teaching systems--OBRAZ'90'', Moscow, 23--24, 1990 (in Russian).
+
+ [4.] Levchenko V.I., Savinov A.A., Dialog control and logical
+      inference in finite predicates, in: Applied Systems of
+      Artificial Intelligence, ed. Pospelov D.A., Kishinev, Shtiintsa,
+      1991 (in Russian).
+
+ [5.] Savinov A.A., The matrix representation of fuzzy knowledge in
+      attribute models, Preprint, Institute of Mathematics, Kishinev,
+      Shtiintsa, 1991 (in Russian).
+
+ [6.] Savinov A.A., The representation of knowledge by fuzzy finite
+      predicates, Proc. conf. "Hybrid Intellectual Systems", Part 1,
+      Rostov-na-Donu, 175--177, 1991 (in Russian).
+
+ [7.] Savinov A.A., The knowledge representation by examples in fuzzy
+      finite predicates, Proc. conf. "Hybrid Intellectual Systems",
+      Part 1, Rostov-na-Donu, 177--179, 1991 (in Russian).
+
+ [8.] Levchenko V.I., Savinov A.A., The representation of fuzzy
+      predicates and logical inference in the attribute models, Fuzzy
+      Systems and AI Magazine, Vol. 1, No. 3--4, 12--15, 1991.
+
+ [9.] Levchenko V.I., Savinov A.A., The matrix representation of
+      knowledge and the solution of the diagnosis problem in the fuzzy
+      attribute model, Fuzzy Systems and AI Magazine, Vol. 1, No. 3-4,
+      3-5, 1991.
+
+[10.] Levchenko V.I., Savinov A.A., Matrix representation of fuzzy
+      knowledge in the expert system shell EDIP, 4-th Int. Simp.
+      "Fuzzy Systems and Artificial Intelligence--IASI-FSAI", October
+      1--12, Iasi, Romany, 59--62, 1991.
+
+[11.] Levchenko V.I., Savinov A.A., The representation of fuzzy
+      knowledge in the diagnostic expert system shell EDIP, 2nd Int.
+      Conf. on Fuzzy Logic and Neural Networks--IIZUKA'92, July
+      17--22, Iizuka, Japan, 1992.
+
+[12.] Levchenko V.I., Savinov A.A., The matrix representation of fuzzy
+      predicates in attribute models and its application to the expert
+      systems of diagnostic type in: Knowledge based applied systems,
+      ed. Pecherski Yu.N., 60--75, Kishinev, Shtiintsa, 1992 (in
+      Russian).
+
+[13.] Savinov A.A., Fuzzy finite predicates and the repertory grids
+      method, in: Knowledge based applied systems, ed. Pecherski
+      Yu.N., 76--87, Kishinev, Shtiintsa, 1992 (in Russian).
+
+[14.] Levchenko V.I., Savinov A.A., The matrix representation of fuzzy
+      knowledge and its application to the expert systems design,
+      Computer Science Journal of Moldova, Vol. 1, No. 1, 62--84,
+      1993.
+
+[15.] Vizitiu A.V., Levchenko V.I., Savinov A.A., Using fuzzy
+      knowledge for moving object control, Proc. conf. "Informatics
+      and computer technique", Kishinev, 44--47, 1993 (in Russian).
+
+[16.] Savinov A.A., Fuzzy propositional logic for the knowledge
+      representation, First European Congress on Fuzzy and Intelligent
+      Technologies--EUFIT'93, Aachen, Germany, September 7--10, 1993.
+
+[17.] Savinov A.A., Fuzzy propositional logic, Fuzzy Sets and Systems,
+      Vol. 60, No. 1, 9--17, 1993.
+
+[18.] Levchenko V.I., Savinov A.A., The matrix representation of fuzzy
+      predicates and its application to expert systems, Izvestia
+      Russian AS, Tehnicheskaia Kibernetika, No. 5, 126--140, 1993 (in
+      Russian).
+
+[19.] Savinov A.A., The matrix representation of fuzzy knowledge in
+      expert systems, PhD thesis, 81p, 1993 (in Russian).
+

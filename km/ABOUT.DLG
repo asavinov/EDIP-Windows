@@ -1,0 +1,18 @@
+ABOUTEDIP DIALOG 72, 26, 145, 122
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | 0xC0L
+CAPTION "About EDIP"
+FONT 10, "Helv"
+BEGIN
+	ICON "frameicon", -1, 9, 15, 16, 16, WS_CHILD | WS_VISIBLE
+	CTEXT "Knowledge Manager", -1, 42, 4, 78, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "EDIP", -1, 43, 15, 78, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "Version 1.3", -1, 48, 25, 67, 9, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "1992-1994", -1, 52, 37, 57, 9, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "-----------------------------------------------------------------", -1, 2, 46, 141, 6, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "Institute of Mathematics", -1, 2, 55, 142, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "Academiei 5, 277028 Kishinev, Moldavia (CIS)", -1, 2, 65, 142, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "Alexandr A. Savinov", -1, 2, 76, 142, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "Phone: 373+2-73-81-30", -1, 2, 86, 142, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CTEXT "Email: 23LSII@math.moldova.su", -1, 2, 96, 142, 8, WS_CHILD | WS_VISIBLE | WS_GROUP
+	CONTROL "OK", 1, "BUTTON", WS_CHILD | WS_VISIBLE | WS_GROUP | WS_TABSTOP | 0x1L, 53, 108, 38, 12
+END

@@ -1,0 +1,301 @@
+#include <windows.h>
+#include "lk.h"
+#include "km.h"
+
+frameicon   ICON   km.ico
+struct      ICON   struct.ico
+know        ICON   know.ico
+data        ICON   data.ico
+
+vercur      CURSOR vercur.cur
+horcur      CURSOR horcur.cur
+
+strattbmp      BITMAP stratt.bmp
+strvalbmp      BITMAP strval.bmp
+
+knowattin      BITMAP knattin.bmp
+knowattout     BITMAP knattout.bmp
+knowvalbmp     BITMAP knowval.bmp
+
+datattin      BITMAP dtattin.bmp
+datattout     BITMAP dtattout.bmp
+datavalbmp    BITMAP dataval.bmp
+
+
+framemenu MENU
+	BEGIN
+	POPUP   "&File"
+		BEGIN
+		MENUITEM    "&New",              IDM_FILENEW
+		MENUITEM    "&Open... \tF3",     IDM_FILEOPEN
+		MENUITEM    SEPARATOR
+		MENUITEM    "E&xit \tAlt-X",     IDM_FILEEXIT
+		END
+    POPUP   "&Help"
+		BEGIN
+        MENUITEM    "&Contents \t F1",   IDM_HELPINDEX
+        MENUITEM    SEPARATOR
+		MENUITEM    "&About EDIP...",    IDM_FILEABOUT
+        END
+    END
+
+structmenu MENU
+	BEGIN
+	POPUP   "&File"
+		BEGIN
+		MENUITEM    "&New",              IDM_FILENEW
+		MENUITEM    "&Open... \tF3",     IDM_FILEOPEN
+		MENUITEM    "&Save \tF2",        IDM_FILESAVE
+		MENUITEM    "Save &As...",       IDM_FILESAVEAS
+		MENUITEM    "&Close",            IDM_FILECLOSE
+		MENUITEM    "C&lose All",        IDM_FILECLOSEALL
+		MENUITEM    SEPARATOR
+		MENUITEM    "E&xit \tAlt-X",     IDM_FILEEXIT
+		END
+	POPUP   "&View"
+		BEGIN
+		MENUITEM    "Split &Horizontal",     IDM_VIEWHORIZONTAL
+		MENUITEM    "Split &Vertical",       IDM_VIEWVERTICAL
+		MENUITEM    SEPARATOR
+		MENUITEM    "&Unsorted",             IDM_UNSORTED
+		MENUITEM    "&Name",                 IDM_NAME
+		MENUITEM    "&Price",                IDM_PRICE
+		MENUITEM    "&Importance",           IDM_IMPORTANCE
+		MENUITEM    "V&alues Number",        IDM_VALUES
+		MENUITEM    "&Character",            IDM_CHARACTER
+		MENUITEM    SEPARATOR
+		MENUITEM    "&Reverse",              IDM_REVERSE
+		END
+	POPUP   "&Item"
+		BEGIN
+		MENUITEM    "&Add item... \tIns",    IDM_ITEMADD
+		MENUITEM    "&Delete item \tDel",    IDM_ITEMDELETE
+		MENUITEM    "&Edit item... \tEnter", IDM_ITEMEDIT
+		MENUITEM    SEPARATOR
+		MENUITEM    "Call &Hypertext",       IDM_HYPERTEXT
+		MENUITEM    "&Module Header...",     IDM_ITEMHEADER
+		END
+	POPUP   "&Window"
+		BEGIN
+		MENUITEM    "&Tile",             IDM_WINDOWTILE
+		MENUITEM    "C&ascade",          IDM_WINDOWCASCADE
+		MENUITEM    "Arrange &Icons",    IDM_WINDOWICONS
+		END
+    POPUP   "&Help"
+		BEGIN
+        MENUITEM    "&Contents \t F1",   IDM_HELPINDEX
+        MENUITEM    SEPARATOR
+		MENUITEM    "&About EDIP...",    IDM_FILEABOUT
+        END
+    END
+
+knowmenu MENU
+	BEGIN
+	POPUP   "&File"
+		BEGIN
+		MENUITEM    "&New",              IDM_FILENEW
+		MENUITEM    "&Open... \tF3",     IDM_FILEOPEN
+		MENUITEM    "&Save \tF2",        IDM_FILESAVE
+		MENUITEM    "Save &As...",       IDM_FILESAVEAS
+		MENUITEM    "&Close",            IDM_FILECLOSE
+		MENUITEM    "C&lose All",        IDM_FILECLOSEALL
+		MENUITEM    SEPARATOR
+		MENUITEM    "E&xit \tAlt-X",     IDM_FILEEXIT
+		END
+	POPUP   "&View"
+		BEGIN
+		MENUITEM    "Split &Horizontal",     IDM_VIEWHORIZONTAL
+		MENUITEM    "Split &Vertical",       IDM_VIEWVERTICAL
+		MENUITEM    SEPARATOR
+		MENUITEM    "&Unsorted",             IDM_ASINRULE
+		MENUITEM    "&Structure",            IDM_UNSORTED
+		MENUITEM    "&Name",                 IDM_NAME
+		MENUITEM    "&Price",                IDM_PRICE
+		MENUITEM    "&Importance",           IDM_IMPORTANCE
+		MENUITEM    "V&alues Number",        IDM_VALUES
+		MENUITEM    "&Character",            IDM_CHARACTER
+		MENUITEM    SEPARATOR
+		MENUITEM    "&Reverse",              IDM_REVERSE
+		END
+	POPUP   "&Item"
+		BEGIN
+		MENUITEM    "&Add Proposition... \tIns",      IDM_ITEMADD
+		MENUITEM    "&Delete Proposition \tDel",      IDM_ITEMDELETE
+		MENUITEM    "&Invert Proposition... \tEnter", IDM_ITEMINVERT
+		MENUITEM    SEPARATOR
+		MENUITEM    "&Add Rule",                      IDM_RULEADD
+		MENUITEM    "&Delete Rule",                   IDM_RULEDELETE
+		MENUITEM    SEPARATOR
+		MENUITEM    "Call &Hypertext",                IDM_HYPERTEXT
+		MENUITEM    "&Module Header...",              IDM_ITEMHEADER
+		END
+	POPUP   "&Compile"
+		BEGIN
+		MENUITEM    "&Compile \tCtrl F9",    IDM_COMPILE
+		END
+	POPUP   "&Window"
+		BEGIN
+		MENUITEM    "&Tile",             IDM_WINDOWTILE
+		MENUITEM    "C&ascade",          IDM_WINDOWCASCADE
+		MENUITEM    "Arrange &Icons",    IDM_WINDOWICONS
+		END
+    POPUP   "&Help"
+		BEGIN
+        MENUITEM    "&Contents \t F1",   IDM_HELPINDEX
+        MENUITEM    SEPARATOR
+		MENUITEM    "&About EDIP...",    IDM_FILEABOUT
+        END
+    END
+
+datamenu MENU
+	BEGIN
+	POPUP   "&File"
+		BEGIN
+		MENUITEM    "&New",              IDM_FILENEW
+		MENUITEM    "&Open... \tF3",     IDM_FILEOPEN
+		MENUITEM    "&Save \tF2",        IDM_FILESAVE
+		MENUITEM    "Save &As...",       IDM_FILESAVEAS
+		MENUITEM    "&Close",            IDM_FILECLOSE
+		MENUITEM    "C&lose All",        IDM_FILECLOSEALL
+		MENUITEM    SEPARATOR
+		MENUITEM    "E&xit \tAlt-X",     IDM_FILEEXIT
+		END
+	POPUP   "&View"
+		BEGIN
+		MENUITEM    "Split &Horizontal",     IDM_VIEWHORIZONTAL
+		MENUITEM    "Split &Vertical",       IDM_VIEWVERTICAL
+		MENUITEM    SEPARATOR
+		MENUITEM    "Data \tPgUp",           IDM_VIEWDATA
+		MENUITEM    "Conclusion \tPgDn",     IDM_VIEWCONCLUSION
+		MENUITEM    SEPARATOR
+		MENUITEM    "&Unsorted",             IDM_ASINRULE
+		MENUITEM    "&Structure",            IDM_UNSORTED
+		MENUITEM    "&Name",                 IDM_NAME
+		MENUITEM    "&Price",                IDM_PRICE
+		MENUITEM    "&Importance",           IDM_IMPORTANCE
+		MENUITEM    "V&alues Number",        IDM_VALUES
+		MENUITEM    "&Character",            IDM_CHARACTER
+		MENUITEM    SEPARATOR
+		MENUITEM    "&Reverse",              IDM_REVERSE
+		END
+	POPUP   "&Item"
+		BEGIN
+		MENUITEM    "&Add Proposition... \tIns",      IDM_ITEMADD
+		MENUITEM    "&Delete Proposition \tDel",      IDM_ITEMDELETE
+		MENUITEM    "&Invert Proposition... \tEnter", IDM_ITEMINVERT
+		MENUITEM    SEPARATOR
+		MENUITEM    "Call &Hypertext",                IDM_HYPERTEXT
+		MENUITEM    "&Module Header...",              IDM_ITEMHEADER
+		END
+	POPUP   "I&nference"
+		BEGIN
+		MENUITEM    "I&nfernce \t F9",                IDM_INFERENCE
+		END
+	POPUP   "&Window"
+		BEGIN
+		MENUITEM    "&Tile",             IDM_WINDOWTILE
+		MENUITEM    "C&ascade",          IDM_WINDOWCASCADE
+		MENUITEM    "Arrange &Icons",    IDM_WINDOWICONS
+		END
+    POPUP   "&Help"
+		BEGIN
+        MENUITEM    "&Contents \t F1",   IDM_HELPINDEX
+        MENUITEM    SEPARATOR
+		MENUITEM    "&About EDIP...",    IDM_FILEABOUT
+        END
+    END
+
+frameaccel ACCELERATORS
+	BEGIN
+    VK_F1,      IDM_HELPINDEX,   VIRTKEY
+    VK_F3,      IDM_FILEOPEN,    VIRTKEY
+	VK_X,       IDM_FILEEXIT,    VIRTKEY, ALT
+	END
+
+structaccel ACCELERATORS
+	BEGIN
+	VK_TAB,     IDM_CHANGEWINDOW, VIRTKEY
+    VK_F1,      IDM_HELPINDEX,    VIRTKEY
+	VK_F2,      IDM_FILESAVE,     VIRTKEY
+	VK_F3,      IDM_FILEOPEN,     VIRTKEY
+	VK_X,       IDM_FILEEXIT,     VIRTKEY, ALT
+	VK_INSERT,  IDM_ITEMADD,      VIRTKEY
+	VK_DELETE,  IDM_ITEMDELETE,   VIRTKEY
+	VK_RETURN,  IDM_ITEMEDIT,     VIRTKEY
+	END
+
+knowaccel ACCELERATORS
+	BEGIN
+	VK_TAB,     IDM_CHANGEWINDOW, VIRTKEY
+    VK_F1,      IDM_HELPINDEX,    VIRTKEY
+	VK_F2,      IDM_FILESAVE,     VIRTKEY
+	VK_F3,      IDM_FILEOPEN,     VIRTKEY
+	VK_F9,      IDM_COMPILE,      VIRTKEY, CONTROL
+	VK_X,       IDM_FILEEXIT,     VIRTKEY, ALT
+	VK_INSERT,  IDM_ITEMADD,      VIRTKEY
+	VK_DELETE,  IDM_ITEMDELETE,   VIRTKEY
+	VK_RETURN,  IDM_ITEMINVERT,   VIRTKEY
+	VK_PRIOR,   IDM_PREVRULE,     VIRTKEY
+	VK_NEXT,    IDM_NEXTRULE,     VIRTKEY
+	VK_PRIOR,   IDM_FIRSTRULE,    VIRTKEY, CONTROL
+	VK_NEXT,    IDM_LASTRULE,     VIRTKEY, CONTROL
+	VK_ADD,     IDM_INCREASE,     VIRTKEY
+	VK_SUBTRACT,IDM_DECREASE,     VIRTKEY
+	END
+
+dataccel ACCELERATORS
+	BEGIN
+	VK_TAB,     IDM_CHANGEWINDOW,   VIRTKEY
+    VK_F1,      IDM_HELPINDEX,      VIRTKEY
+	VK_F2,      IDM_FILESAVE,       VIRTKEY
+	VK_F3,      IDM_FILEOPEN,       VIRTKEY
+	VK_F9,      IDM_INFERENCE,      VIRTKEY
+	VK_X,       IDM_FILEEXIT,       VIRTKEY, ALT
+	VK_INSERT,  IDM_ITEMADD,        VIRTKEY
+	VK_DELETE,  IDM_ITEMDELETE,     VIRTKEY
+	VK_RETURN,  IDM_ITEMINVERT,     VIRTKEY
+	VK_ADD,     IDM_INCREASE,       VIRTKEY
+	VK_SUBTRACT,IDM_DECREASE,       VIRTKEY
+	VK_PRIOR,   IDM_VIEWDATA,       VIRTKEY
+	VK_NEXT,    IDM_VIEWCONCLUSION, VIRTKEY
+	END
+
+STRINGTABLE
+	BEGIN
+	IDS_APPNAME          "EDIP Knowledge Manager"
+	IDS_CANTREGISTER     "Cannot register class"
+	IDS_REPLACE          "Replace existing '%s' ?"
+	IDS_CANTCREATEWIN    "Cannot create window"
+	IDS_CANTLOADRESOURCE "Cannot load resource"
+	IDS_CANTALLOC        "Cannot allocate memory"
+	IDS_UNTITLED         "UNTITLED"
+    IDS_NOTUNIQUE        "Dublicate attribute name"
+	IDS_CANTSAVE         "Cannot save knowledge base"
+	IDS_CLOSESAVE        "Save current module '%s' ?"
+	IDS_DELETEVALUE      "Do You Wish To Delete the Current Value?"
+	IDS_DELETEATTRIBUTE  "Do You Wish to Delete the Current Attribute?
+(All Its Values will Be Deleted)"
+	IDS_DELETEPROPOSITION "Do You Wish to Delete the Current Proposition?"
+	IDS_DELETERULE "Do You Wish to Delete the Current Rule?"
+	IDS_NOTEDIPFILE "'%s' is not EDIP 1.1 file"
+	IDS_CANTOPENFILE "Cannot open file '%s'"
+	IDS_NOTCOMPILED "Knowledge Base is not Compiled"
+	IDS_NOGOAL "There is no Goal. Insert Propositions into Conclusion Window"
+	IDS_NOHYPERFILE "There is no HyperFile in Module Header"
+	IDS_NOINDEX "There is no Index for this Item"
+	IDS_EDIPDEMO "Demo version cannot save files"
+	END
+
+#ifdef EDIPDEMO
+#include "aboutdem.dlg"
+#else
+#include "about.dlg"
+#endif
+#include "module.dlg"
+#include "openfile.dlg"
+#include "saveas.dlg"
+#include "attribut.dlg"
+#include "value.dlg"
+#include "proposit.dlg"
+#include "statcomp.dlg"
+

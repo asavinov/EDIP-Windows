@@ -1,0 +1,53 @@
+[Options]
+;INDEX=main_index
+;MAPFONTSIZE=14-22:18
+;MAPFONTSIZE=8-13:10
+
+[Files]
+ediphelp.rtf
+
+[Bitmaps]
+
+[Map]
+main_index             0
+
+window_classes         2000
+structure_window       2010
+knowledge_window       2020
+consultation_window    2030
+
+menu_commands          3000
+
+file_menu              3010
+file_new_menu          3011
+file_open_menu         3012
+file_save_menu         3013
+file_saveas_menu       3014
+file_close_menu        3015
+file_closeall_menu     3016
+file_exit_menu         3017
+
+view_menu              3020
+view_spliting_menu     3021
+view_sorting_menu      3022
+view_dataconc_menu     3023
+
+item_menu              3030
+compile_menu           3040
+inference_menu         3050
+window_menu            3060
+help_menu              3070
+
+;fuzzy_prop_logic       4000
+attribute_model        4010
+fuzzy_propositions     4020
+fuzzy_disjuncts        4030
+fuzzy_implications     4040
+fuzzy_conjuncts        4050
+logical_inference      4060
+
+;attribute              9001
+;value                  9002
+;component              9003
+;connective             9004
+
