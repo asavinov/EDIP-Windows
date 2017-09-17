@@ -7,5 +7,5 @@ Expert system shell EDIP is intended for creating expert systems in ssome proble
 ## Author
 
 Alexandr Savinov 
-  * http://conceptoriented.org/savinov
-  * https://www.researchgate.net/profile/Alexandr_Savinov
+* http://conceptoriented.org/savinov
+* https://www.researchgate.net/profile/Alexandr_Savinov
